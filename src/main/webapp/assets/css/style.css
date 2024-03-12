@@ -1,0 +1,170 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 mars 2024, 16:09:29
+    Author     : Elisa Bothy
+*/
+
+:root{
+    --color-text:#30303d;
+    --color-background:#76899E;
+    --color-background-nav-click:#cdddf4;
+    --color-background-nav: #86B6FA;
+    --color-background-nav-today-info: #D4D68A;
+    --color-text-today-info: #597392;
+    --color-input-glow: #e6edf7;
+    --color-input-shadow: #95a8c2;
+    --color-fieldset:#edf1f8;
+    --color-fieldset-glow:#e7effa;
+    --color-fieldset-shadow:#adc1db;
+    --color-text-input:#222227;
+}
+
+body{
+    height: 100vh;
+}
+
+header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;            
+}
+
+header ul, header div{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+header ul li{
+    position: relative;
+    list-style: none;
+    margin-top: 0;
+    background-color: var(--color-background-nav);
+}
+
+header a{
+  color:var(--color-text)
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+header a :link{color:var(--color-text) ;text-decoration: none;}
+header a :visited{text-decoration: none;color: var(--color-text);}
+header a :active{color: var(--color-text);}
+header  a :hover{color: var(--color-text);}
+header li:hover{background-color: var(--color-background-nav-click);color: var(--color-text);}
+
+ul, div{
+    width: 100%;
+    margin-top: 0%;
+    padding: 0%;
+}
+
+li{
+    width: 50%;
+    height: 7vh;
+    text-align: center;
+    padding-top: 2%;
+}
+
+
+.container{
+    display: flex;
+    position: relative;
+    background-color: var(--color-background-nav-click);
+    right: 8px;
+    width: 103%;
+    height: 110vh;
+    text-transform: uppercase;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    padding-top: 3%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: smaller;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    flex-direction: column;
+}
+
+.container form, .container select{
+    z-index: 2;
+}
+
+h1{
+   text-align: center;
+}
+
+.container input{
+    display: flex;
+} 
+
+fieldset{
+  padding: 2%;
+  border-radius: 5px;
+  border-color: transparent;
+  box-shadow: 5px 5px 10px var(--color-fieldset-shadow), -10px -10px 20px var(--color-fieldset-glow);
+}
+
+
+form input{
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  position: relative;
+  padding: 0;
+  margin : 2% 0 3% 3%; 
+  border-radius: 10px;
+  border: none;
+  border-color: var(--color-input-glow) var(--color-input-shadow) var(--color-input-shadow) var(--color-input-glow);
+  box-shadow: 5px 5px 10px var(--color-input-shadow), -10px -10px 20px var(--color-input-glow);
+}
+
+label{
+    text-align: right;
+}
+
+input:hover{
+  box-shadow: inset 10px 10px 20px var(--color-input-shadow), inset -10px -10px 20px var(--color-input-glow);
+}
+
+fieldset input{
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  background-color: var(--color-fieldset);
+  color: var(--color-text-input);
+  border:transparent solid 2px;
+}
+
+.button{
+    display: inline-flex;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: var(--color-background-nav-click);
+    color: var(--color-text-input);
+}
+
+#login{
+   text-transform: none;
+}
