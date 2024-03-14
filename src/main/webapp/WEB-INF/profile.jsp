@@ -1,6 +1,6 @@
 <%-- 
-    Document   : inscription
-    Created on : 12 mars 2024, 08:35:43
+    Document   : profil
+    Created on : 12 mars 2024, 15:55:49
     Author     : Elisa Bothy
 --%>
 
@@ -14,9 +14,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inscription Page</title>
+        <title>Welcome Page</title>
         <link rel="shortcut icon" href="<c:url value="/assets/photos/blog.png" />">
-        <link rel="stylesheet" href="/BlogExemple/assets/css/style.css">
+        <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
@@ -33,21 +33,21 @@
                             <li><a href="<c:url value="/logOut" />">Déconnexion</a></li>
                         </c:otherwise>
                 </c:choose>
-            </ul> 
+            </ul>
         </header>
         <div class="container" id="container">
             <fieldset>
-                <h1>Veuillez entrer vos paramètres d'inscription</h1>
-                <p>${requestScope.errors.connectInscription}</p>
-                <form action="signUp" method="POST">
+                <h1>Votre profil</h1>
+                <p id="id-user">Votre id : ${sessionScope.user.id}</p>
+                <p id="login">Votre Identifiant : ${sessionScope.user.login}</p>
+                <form action="profile" method="POST">
+                    <p>Changement Mot de Passe</p>
                     <div> 
-                        <input type="text" placeholder="Identifiant" required id="login" name="login" value="${requestScope.bean.login}">
-                        <span class="error">${requestScope.errors.login}</span>
-                    </div>
-                    <div> 
-                        <input placeholder="Mot de Passe" required id="pwd" name="pwd" type="password">
-                        <input placeholder="Vérification de votre Mot de Passe" required id="pwd2" name="pwd2" type="password">
-                        <span class="error">${requestScope.errors.pwd}</span>
+                        <input placeholder="Actuel Mot de Passe" required id="pwdNow" name="pwdNow" type="password">
+                        <span class="error">${requestScope.errors.now}</span>
+                        <input placeholder="Nouveau Mot de Passe" required id="pwdNew" name="pwdNew" type="password">
+                        <input placeholder="Vérification Mot de Passe" required id="pwdNew2" name="pwdNew2" type="password">
+                        <span class="error">${requestScope.errors.newPwd}</span>
                     </div>
                     <div class="button">
                         <input type="submit" class="button" value="Envoyer">
@@ -71,4 +71,5 @@
         <footer>
             <p>©Elisa BOTHY</p>
         </footer>
+    </body>
 </html>

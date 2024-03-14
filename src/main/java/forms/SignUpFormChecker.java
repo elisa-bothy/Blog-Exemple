@@ -58,6 +58,8 @@ public class SignUpFormChecker extends FormChecker<Person> {
                 setError("connectInscription", "Vous allez vous connectez");
             }else{
                 pdao.create(obj);
+                Person p = pdao.read(login);
+                obj.setId(p.getId());
             }
         }
         //associer les messages d'erreurs et le bean à la requête

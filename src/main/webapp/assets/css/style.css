@@ -80,6 +80,39 @@ li{
     padding-top: 2%;
 }
 
+#today-info{
+    background-color: var(--color-background-nav-today-info);
+    width: 20%;
+    height:70vh;
+    margin-top: 16px;
+    padding: 0 0 0 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: right;
+    border-radius: 5%;
+} 
+
+#today-info p{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-today-info);
+}
+
+#today-info p{
+  position: relative;  
+}
+
+.text-bold{
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+#date{
+  position: relative;
+}
 
 .container{
     display: flex;
@@ -148,7 +181,6 @@ input:hover{
 fieldset input{
   font-family: sans-serif;
   font-weight: 500;
-  text-transform: none;
   letter-spacing: 1px;
   border-radius: 5px;
   background-color: var(--color-fieldset);
@@ -157,6 +189,7 @@ fieldset input{
 }
 
 .button{
+    text-transform: uppercase;
     display: inline-flex;
     font-family: sans-serif;
     font-weight: 500;
