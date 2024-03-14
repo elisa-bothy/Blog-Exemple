@@ -4,24 +4,28 @@
  */
 package controllers;
 
+import dao.ArticleDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Elisa Bothy
  */
-@WebServlet("/logOut")
+@WebServlet("/index")
 @SuppressWarnings("serial")
-public class LogOut extends HttpServlet{
+public class Index extends HttpServlet{
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //supprimer tout le contenu de la session
-        req.getSession().invalidate();
-        resp.sendRedirect("/BlogExemple");
-    }    
+        req
+                .setAttribute("articles", new ArticleDao().list());
+        req
+                .getRequestDispatcher("/WEB-INF/index.jsp")
+                .forward(req, resp);
+    }
 }

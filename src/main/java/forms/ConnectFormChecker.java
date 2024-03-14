@@ -38,9 +38,10 @@ public class ConnectFormChecker extends FormChecker<Person> {
         //si formulaire acceptable => vérifier couple login pwd
         if (errors.isEmpty()){
             Person read = pdao.read(login);
-            obj.setId(read.getId());
             if (read == null || !pwd.equals(read.getPassword())) {
                 setError("connect", "Ces informations ne vous permettent pas de vous connecter");
+            }else{
+                obj.setId(read.getId());
             }
         }
         //associer les messages d'erreurs et le bean à la requête
