@@ -23,7 +23,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 body{
-    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 header{
@@ -37,7 +39,7 @@ header{
     font-family: sans-serif;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;            
+    letter-spacing: 1px;
 }
 
 header ul, header div{
@@ -54,44 +56,54 @@ header ul li{
 }
 
 header a{
-  color:var(--color-text)
+    color:var(--color-text)
 }
 
 header ul li a {
     text-decoration: none;
 }
 
-header a :link{color:var(--color-text) ;text-decoration: none;}
-header a :visited{text-decoration: none;color: var(--color-text);}
-header a :active{color: var(--color-text);}
-header  a :hover{color: var(--color-text);}
-header li:hover{background-color: var(--color-background-nav-click);color: var(--color-text);}
+header a :link{
+    color:var(--color-text) ;
+    text-decoration: none;
+}
+header a :visited{
+    text-decoration: none;
+    color: var(--color-text);
+}
+header a :active{
+    color: var(--color-text);
+}
+header  a :hover{
+    color: var(--color-text);
+}
+header li:hover{
+    background-color: var(--color-background-nav-click);
+    color: var(--color-text);
+}
 
 ul, div{
     width: 100%;
-    margin-top: 0%;
-    padding: 0%;
+    margin: 0 0 0 0;
+    padding: 0;
 }
 
 li{
     width: 50%;
     height: 7vh;
     text-align: center;
-    padding-top: 2%;
+    padding-top: 3vh;
 }
 
 #today-info{
     background-color: var(--color-background-nav-today-info);
-    width: 20%;
-    height:70vh;
-    margin-top: 16px;
-    padding: 0 0 0 0;
-    flex-direction: column;
-    flex-wrap: wrap;
+    width: 100%;
+    height:90vh;
+    padding: 3% 0 0 0;
     align-items: center;
     justify-content: right;
     border-radius: 5%;
-} 
+}
 
 #today-info p{
     text-align: center;
@@ -101,73 +113,117 @@ li{
     color: var(--color-text-today-info);
 }
 
-#today-info p{
-  position: relative;  
+#today-info p, #today-info img{
+    position: relative;
+    display: flex;
+}
+
+#p-sunset, #p-sunrise{
+    font-size: x-large;
+    font-weight: 500;
 }
 
 .text-bold{
-  font-weight: 600;
-  font-size: xx-large;
+    font-weight: 600;
+    font-size: xx-large;
 }
 
 #date{
-  position: relative;
+    position: relative;
+}
+
+#saint, #sun{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#sunrise, #sunset, #saint1, #saint2{
+    width: 20%;
+}
+
+#surcont-today-info{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-background-nav-click);
+    margin: 0 0 0 0;
+}
+
+main{
+    width: 70%;
+    height: 110vh;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+aside{
+    width: 30%;
+    height: 110vh;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+#content-all{
+    display: flex;
+    margin-top: 10vh;
 }
 
 .container{
-    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     position: relative;
     background-color: var(--color-background-nav-click);
-    right: 8px;
-    width: 103%;
-    height: 110vh;
     text-transform: uppercase;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    padding-top: 3%;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     font-family: sans-serif;
     font-weight: 500;
     font-size: smaller;
     letter-spacing: 1px;
     color: var(--color-text);
-    flex-direction: column;
+}
+
+.container p{
+    margin: 0 0 0 0;
 }
 
 .container form, .container select{
     z-index: 2;
 }
 
-h1{
-   text-align: center;
+h1, h2, p, h3{
+    padding: 2%;
+    margin: 0;
+    text-align: center;
 }
 
 .container input{
     display: flex;
-} 
+}
 
 fieldset{
-  padding: 2%;
-  border-radius: 5px;
-  border-color: transparent;
-  box-shadow: 5px 5px 10px var(--color-fieldset-shadow), -10px -10px 20px var(--color-fieldset-glow);
+    width: 90%;
+    padding: 2%;
+    border-radius: 5px;
+    border-color: transparent;
+    box-shadow: 5px 5px 10px var(--color-fieldset-shadow), -10px -10px 20px var(--color-fieldset-glow);
 }
 
 
 form input{
-  width: 200px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  position: relative;
-  padding: 0;
-  margin : 2% 0 3% 3%; 
-  border-radius: 10px;
-  border: none;
-  border-color: var(--color-input-glow) var(--color-input-shadow) var(--color-input-shadow) var(--color-input-glow);
-  box-shadow: 5px 5px 10px var(--color-input-shadow), -10px -10px 20px var(--color-input-glow);
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    padding: 0;
+    margin : 2% 0 3% 3%;
+    border-radius: 10px;
+    border: none;
+    border-color: var(--color-input-glow) var(--color-input-shadow) var(--color-input-shadow) var(--color-input-glow);
+    box-shadow: 5px 5px 10px var(--color-input-shadow), -10px -10px 20px var(--color-input-glow);
 }
 
 label{
@@ -175,17 +231,17 @@ label{
 }
 
 input:hover{
-  box-shadow: inset 10px 10px 20px var(--color-input-shadow), inset -10px -10px 20px var(--color-input-glow);
+    box-shadow: inset 10px 10px 20px var(--color-input-shadow), inset -10px -10px 20px var(--color-input-glow);
 }
 
 fieldset input{
-  font-family: sans-serif;
-  font-weight: 500;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  background-color: var(--color-fieldset);
-  color: var(--color-text-input);
-  border:transparent solid 2px;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background-color: var(--color-fieldset);
+    color: var(--color-text-input);
+    border:transparent solid 2px;
 }
 
 .button{
@@ -199,5 +255,5 @@ fieldset input{
 }
 
 #login{
-   text-transform: none;
+    text-transform: none;
 }
