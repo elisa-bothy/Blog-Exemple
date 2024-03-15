@@ -16,16 +16,16 @@
         <title>${param.title}</title>
     </head>
     <body>
-        <jsp:include page="/WEB-INF/header.jsp" />
+        <jsp:include page="/WEB-INF/template/header.jsp" />
         <div id="content-all">
             <main>
                 <jsp:include page="${param.content}.jsp" />
             </main>
             <aside>
-                <jsp:include page="/WEB-INF/today-info.jsp" />
+                <jsp:include page="/WEB-INF/template/today-info.jsp" />
             </aside>
         </div>
-        <jsp:include page="/WEB-INF/footer.jsp" />
-        <script src="<c:url value="/assets/js/fetch.js" />"></script> 
+        <jsp:include page="/WEB-INF/template/footer.jsp" />
+        <script src="<c:url value="../assets/js/fetch.js" />"></script> 
     </body>
 </html>

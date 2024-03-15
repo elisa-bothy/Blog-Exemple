@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Elisa Bothy
  */
-@WebServlet("/connect")
+@WebServlet("/public/connect")
 @SuppressWarnings("serial")
 public class Connect extends HttpServlet{
      @Override
@@ -26,7 +26,7 @@ public class Connect extends HttpServlet{
         HttpSession session = req.getSession();
         if(session.getAttribute("user") == null){
             req
-                .getRequestDispatcher("/WEB-INF/connect.jsp")
+                .getRequestDispatcher("/WEB-INF/public/connect.jsp")
                 .forward(req, resp);
         }else{
             resp.sendRedirect("/BlogExemple/");
@@ -46,9 +46,9 @@ public class Connect extends HttpServlet{
             // Il est mis en session
             HttpSession session = req.getSession();
             session.setAttribute("user", p);
-            resp.sendRedirect("/BlogExemple/connected");
+            resp.sendRedirect(req.getContextPath() + "/user/connected");
         }else{
-            req.getRequestDispatcher("/WEB-INF/connect.jsp")
+            req.getRequestDispatcher("/WEB-INF/public/connect.jsp")
                     .forward(req, resp);
         }
     }

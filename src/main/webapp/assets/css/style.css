@@ -48,18 +48,15 @@ header ul, header div{
     justify-content: center;
 }
 
-header ul li{
-    position: relative;
-    list-style: none;
-    margin-top: 0;
-    background-color: var(--color-background-nav);
-}
-
 header a{
     color:var(--color-text)
 }
 
-header ul li a {
+header ul a {
+    position: relative;
+    list-style: none;
+    margin-top: 0;
+    background-color: var(--color-background-nav);
     text-decoration: none;
 }
 
@@ -77,7 +74,7 @@ header a :active{
 header  a :hover{
     color: var(--color-text);
 }
-header li:hover{
+header ul a:hover{
     background-color: var(--color-background-nav-click);
     color: var(--color-text);
 }
@@ -88,21 +85,41 @@ ul, div{
     padding: 0;
 }
 
-li{
+ul a{
     width: 50%;
     height: 7vh;
     text-align: center;
     padding-top: 3vh;
 }
 
+#content-all{
+    display: flex;
+    margin-top: 10vh;
+}
+
+aside{
+    width: 30%;
+    height: 200vh;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+#surcont-today-info{
+    width: 100%;
+    height: 200vh;
+    background-color: var(--color-background-nav-click);
+    margin: 0 0 0 0;
+}
+
 #today-info{
     background-color: var(--color-background-nav-today-info);
     width: 100%;
-    height:90vh;
+    height:88vh;
     padding: 3% 0 0 0;
+    justify-content: center;
     align-items: center;
     justify-content: right;
-    border-radius: 5%;
+    border-radius: 4%;
 }
 
 #today-info p{
@@ -113,25 +130,6 @@ li{
     color: var(--color-text-today-info);
 }
 
-#today-info p, #today-info img{
-    position: relative;
-    display: flex;
-}
-
-#p-sunset, #p-sunrise{
-    font-size: x-large;
-    font-weight: 500;
-}
-
-.text-bold{
-    font-weight: 600;
-    font-size: xx-large;
-}
-
-#date{
-    position: relative;
-}
-
 #saint, #sun{
     display: flex;
     align-items: center;
@@ -140,39 +138,46 @@ li{
 
 #sunrise, #sunset, #saint1, #saint2{
     width: 20%;
+    padding-top: 3vh;
 }
 
-#surcont-today-info{
-    width: 100%;
-    height: 100vh;
-    background-color: var(--color-background-nav-click);
-    margin: 0 0 0 0;
+#p-sunset, #p-sunrise{
+    font-size: x-large;
+    font-weight: 500;
+}
+
+#sun-rise img, #sun-set img, #saint-1 img, #saint-2 img{
+    width: 40%
+}
+
+.text-bold{
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.text-bolder{
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+#date{
+    position: relative;
 }
 
 main{
     width: 70%;
-    height: 110vh;
+    height: 200vh;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-}
-
-aside{
-    width: 30%;
-    height: 110vh;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-}
-
-#content-all{
-    display: flex;
-    margin-top: 10vh;
 }
 
 .container{
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     justify-content: center;
+    align-content: center;
     align-items: center;
+    text-align: center;
     position: relative;
     background-color: var(--color-background-nav-click);
     text-transform: uppercase;
@@ -206,11 +211,18 @@ h1, h2, p, h3{
 fieldset{
     width: 90%;
     padding: 2%;
-    border-radius: 5px;
+    border-radius: 4%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
     border-color: transparent;
     box-shadow: 5px 5px 10px var(--color-fieldset-shadow), -10px -10px 20px var(--color-fieldset-glow);
 }
 
+legend{
+    color: var(--color-text-today-info);
+}
 
 form input{
     width: 200px;
@@ -244,6 +256,23 @@ fieldset input{
     border:transparent solid 2px;
 }
 
+span{
+    padding-top: 3%;
+}
+
+#subject{
+    max-width: 950px;
+    min-width: 800px;
+}
+
+textarea{
+    max-width: 750px;
+    min-width: 600px;
+    height: 300px;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+
 .button{
     text-transform: uppercase;
     display: inline-flex;
@@ -256,4 +285,22 @@ fieldset input{
 
 #login{
     text-transform: none;
+}
+
+#articles{
+    padding-top: 5vh;
+}
+
+article{
+    padding-bottom: 3vh;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+footer{
+    color: var(--color-text-today-info);
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
 }

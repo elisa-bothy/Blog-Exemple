@@ -5,11 +5,7 @@
 package controllers;
 
 import dao.ArticleDao;
-import dao.PersonDao;
-import entities.Article;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +16,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Elisa Bothy
  */
-@WebServlet("/test")
+@WebServlet("/admin/articles")
 @SuppressWarnings("serial")
-public class TestArticleDao extends HttpServlet{
+public class Articles extends HttpServlet{
 
    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PersonDao pdao = new PersonDao();
-        pdao.read("Harry");
-        
-        ArticleDao adao = new ArticleDao();
-        Article a = adao.read(1);
-        a.setSubject("La mort");
-        adao.update(a);
+        req
+                .setAttribute("articles", new ArticleDao().list());
+        req
+                .getRequestDispatcher("/WEB-INF/admin/articles.jsp")
+                .forward(req, resp);
+    }
+    
+     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
     }
 }
-    

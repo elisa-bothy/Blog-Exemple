@@ -4,26 +4,34 @@
  */
 package controllers;
 
+import dao.ArticleDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Elisa Bothy
  */
-@WebServlet("/user/connected")
+@WebServlet("/admin/eraseArticle")
 @SuppressWarnings("serial")
-public class Connected extends HttpServlet{
-     @Override
+public class EraseArticle extends HttpServlet{
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req
-                .getRequestDispatcher("/WEB-INF/user/connected.jsp")
-                .forward(req, resp);
-       
-    }
+        try{
+            int id = Integer.parseInt(req.getParameter("articleId"));
+            entities.Article article = new ArticleDao().read(id);
+            if(article == null){
+                throw new IllegalArgumentException();
+            }else{
+                new ArticleDao().delete(id);
+                resp.sendRedirect(req.getContextPath() + "/public/index");
+            }
+        } catch(IllegalArgumentException ex){
+            resp.sendError(404);
+        }
+    } 
 }

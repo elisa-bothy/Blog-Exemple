@@ -25,6 +25,25 @@ public class PersonDao{
         connection = MariadbConnection.getInstance();
     }
     
+     public Person readInt(int id) {
+        Person obj = null;
+        String sql = "SELECT * FROM person WHERE id=?";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);//le premier ? prend la valeur id 
+            // que j'ai mis en paramètre
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.first()){
+                obj = new Person();
+                obj.setId(rs.getInt("id"));
+                obj.setLogin(rs.getString("login"));
+                obj.setPassword(rs.getString("password"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la lecture :" + ex.getMessage());
+        }
+       return obj;
+    }
+    
     public Person read(String login) {
         Person obj = null;
         String sql = "SELECT * FROM person WHERE login=?";

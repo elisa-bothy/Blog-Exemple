@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="/WEB-INF/template.jsp">
+<jsp:include page="/WEB-INF/template/template.jsp">
 <jsp:param name="title" value="Connexion réussi"/>
-<jsp:param name="content" value="/WEB-INF/connectedContent"/>
+<jsp:param name="content" value="/WEB-INF/user/connectedContent"/>
 </jsp:include>

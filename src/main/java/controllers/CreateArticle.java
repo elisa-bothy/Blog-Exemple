@@ -4,9 +4,12 @@
  */
 package controllers;
 
+import entities.Article;
 import entities.Person;
-import forms.ProfileFormChecker;
+import forms.ConnectFormChecker;
+import forms.CreateArticleFormChecker;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,29 +21,31 @@ import javax.servlet.http.HttpSession;
  *
  * @author Elisa Bothy
  */
-@WebServlet("/user/profile")
+@WebServlet("/user/createArticle")
 @SuppressWarnings("serial")
-public class Profile extends HttpServlet{
+public class CreateArticle extends HttpServlet{
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req
-            .getRequestDispatcher("/WEB-INF/user/profile.jsp")
-            .forward(req, resp);
+            .getRequestDispatcher("/WEB-INF/user/createArticle.jsp")
+            .forward(req, resp);       
     }
-    
-     @Override
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         //récupère données formulaire + vérification
-        ProfileFormChecker fc = new ProfileFormChecker(req);
-        Person p = fc.checkForm();
+        //récupère données formulaire + vérification
+        
+        CreateArticleFormChecker fc = new CreateArticleFormChecker(req);
+        Article a = fc.checkForm();
         //ajouter bean à l'attribut de requête
         //si erreur affichage formulaire sinon affichage page ok
         if(fc.getErrors().isEmpty()){
-            resp.sendRedirect(req.getContextPath() + "/public/index");
+            req.getRequestDispatcher("/WEB-INF/user/createArticle.jsp")
+                    .forward(req, resp);
         }else{
-            req.getRequestDispatcher("/WEB-INF/user/profile.jsp")
+            req.getRequestDispatcher("/WEB-INF/user/createArticle.jsp")
                     .forward(req, resp);
         }
     }
+    
 }
-

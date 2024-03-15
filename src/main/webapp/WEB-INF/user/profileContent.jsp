@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container" id="container">
     <fieldset>
-        <h1>Votre profil</h1>
+        <legend class="text-bold">Votre profil</legend>
         <p id="id-user">Votre id : ${sessionScope.user.id}</p>
         <p id="login">Votre Identifiant : ${sessionScope.user.login}</p>
         <form action="profile" method="POST">

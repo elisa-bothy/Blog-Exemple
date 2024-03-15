@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Elisa Bothy
  */
-@WebServlet("/signUp")
+@WebServlet("/public/signUp")
 @SuppressWarnings("serial")
 public class SignUp extends HttpServlet{
 
    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req
-                .getRequestDispatcher("/WEB-INF/signUp.jsp")
+                .getRequestDispatcher("/WEB-INF/public/signUp.jsp")
                 .forward(req, resp);
     }
     
@@ -36,9 +36,9 @@ public class SignUp extends HttpServlet{
         //ajouter bean à l'attribut de requête
         //si erreur affichage formulaire sinon affichage page ok
         if(fc.getErrors().isEmpty() || fc.getErrors().containsKey("connectInscription")){
-            resp.sendRedirect("/BlogExemple/connect");
+            resp.sendRedirect(req.getContextPath() + "/public/connect");
         }else{
-            req.getRequestDispatcher("/WEB-INF/signUp.jsp")
+            req.getRequestDispatcher("/WEB-INF/public/signUp.jsp")
                     .forward(req, resp);
         }
     }

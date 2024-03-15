@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container" id="container">
     <fieldset>
-        <h1>Veuillez entrer vos paramètres de connexion</h1>
+        <legend class="text-bold">Veuillez entrer vos paramètres de connexion</legend>
         <p>${requestScope.errors.connect}</p>
         <form action="connect" method="POST">
             <div> 

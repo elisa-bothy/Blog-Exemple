@@ -4,7 +4,7 @@
  */
 /* global fetch */
 
-let heure;
+let heure; let date;
 const saintsAvecSexe = [];
 
 function FetchSaints() {
@@ -46,10 +46,10 @@ function FetchSaints() {
                         saint2.remove();
 
                         if (saintsAvecSexe[0].sexe === "féminin") {
-                            saint1.src = "assets/photos/icons8-angel-100.png";
+                            saint1.src = "../assets/photos/icons8-angel-100.png";
                             saint1.alt = "Un ange pour représenter le saint féminin du jour";
                         } else {
-                            saint1.src = "assets/photos/icons8-halo-100.png";
+                            saint1.src = "../assets/photos/icons8-halo-100.png";
                             saint1.alt = "Une auréole pour représenter le saint masculin du jour";
                         }
                     }
@@ -60,17 +60,17 @@ function FetchSaints() {
 
 
                         if (saintsAvecSexe[0].sexe === "féminin") {
-                            saint1.src = "assets/photos/icons8-angel-100.png";
+                            saint1.src = "../assets/photos/icons8-angel-100.png";
                             saint1.alt = "Un ange pour représenter le saint féminin du jour";
                         } else {
-                            saint1.src = "assets/photos/icons8-halo-100.png";
+                            saint1.src = "../assets/photos/icons8-halo-100.png";
                             saint1.alt = "Une auréole pour représenter le saint masculin du jour";
                         }
                         if (saintsAvecSexe[1].sexe === "féminin") {
-                            saint2.src = "assets/photos/icons8-angel-100.png";
+                            saint2.src = "../assets/photos/icons8-angel-100.png";
                             saint2.alt = "Un ange pour représenter le saint féminin du jour";
                         } else {
-                            saint2.src = "assets/photos/icons8-halo-100.png";
+                            saint2.src = "../assets/photos/icons8-halo-100.png";
                             saint2.alt = "Une auréole pour représenter le saint masculin du jour";
                         }
                     }
@@ -106,7 +106,19 @@ function InfoVille() {
                     function twoDigit(n) {
                         return (n < 10) ? '0' + n : n;
                     }
-
+                    
+                    const semaine = [
+                        "Lundi", "Mardi", "Mercredi", 
+                        "Jeudi", "Vendredi", "Samedi", "Dimanche"
+                    ];
+                    
+                    let day = heure1.getDay();
+                    let d = heure1.getDate();
+                    d = twoDigit(d);
+                    let m = heure1.getMonth();
+                    m = twoDigit(m);
+                    let y = heure1.getFullYear();
+                    y = twoDigit(y);
                     let h = heure1.getHours();
                     h = twoDigit(h);
                     let minute = heure1.getMinutes();
@@ -115,8 +127,11 @@ function InfoVille() {
                     seconde = twoDigit(seconde);
 
                     heure = `${h}:${minute}:${seconde}`;
+                    date = `Le ${semaine[day]} ${d} ${m} ${y}`;
                     const pHeure = document.getElementById("heure");
+                    const pDate = document.getElementById("date");
                     pHeure.innerHTML = `${heure}`;
+                    pDate.innerHTML = `${date}`;
                 }, 1000);
             })
             .catch(err => {

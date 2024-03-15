@@ -6,18 +6,20 @@ package entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
  *
  * @author Elisa Bothy
  */
+@SuppressWarnings("serial")
 public class Article implements Serializable{
     private Integer id;
     private String subject;
     private String content;
-    private Date created;
-    private int author;
+    private Timestamp created;
+    private Person author;
 
     public Integer getId() {
         return id;
@@ -43,19 +45,19 @@ public class Article implements Serializable{
         this.content = content;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
-
-    public int getAuthor() {
+    
+    public Person getAuthor() {
         return author;
     }
 
-    public void setAuthor(int author) {
+    public void setAuthor(Person author) {
         this.author = author;
     }
 
@@ -75,7 +77,7 @@ public class Article implements Serializable{
     public Article() {
     }
 
-    public Article(Integer id, String subject, String content, Date created, int author) {
+    public Article(Integer id, String subject, String content, Timestamp created, Person author) {
         this.id = id;
         this.subject = subject;
         this.content = content;
@@ -85,12 +87,12 @@ public class Article implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.subject);
-        hash = 41 * hash + Objects.hashCode(this.content);
-        hash = 41 * hash + Objects.hashCode(this.created);
-        hash = 41 * hash + this.author;
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.subject);
+        hash = 53 * hash + Objects.hashCode(this.content);
+        hash = 53 * hash + Objects.hashCode(this.created);
+        hash = 53 * hash + Objects.hashCode(this.author);
         return hash;
     }
 

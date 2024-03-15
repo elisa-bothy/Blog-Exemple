@@ -22,6 +22,6 @@ public class LogOut extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //supprimer tout le contenu de la session
         req.getSession().invalidate();
-        resp.sendRedirect("/BlogExemple");
+        resp.sendRedirect(req.getContextPath() + "/public/index");
     }    
 }

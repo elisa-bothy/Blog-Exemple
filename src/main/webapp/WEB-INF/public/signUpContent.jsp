@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container" id="container">
     <fieldset>
-        <h1>Veuillez entrer vos paramètres d'inscription</h1>
+        <legend class="text-bold">Veuillez entrer vos paramètres d'inscription</legend>
         <p>${requestScope.errors.connectInscription}</p>
         <form action="signUp" method="POST">
             <div> 

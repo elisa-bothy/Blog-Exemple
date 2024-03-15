@@ -43,10 +43,10 @@ public class SignUpFormChecker extends FormChecker<Person> {
             setError("pwd", "Ce champ doit faire au moins " + MIN_LOGIN_LENGTH + " charatères");
         }
         if(login.trim().length() > MAX_LOGIN_LENGTH){
-            setError("login", "Ce champ doit faire minimum " + MAX_LOGIN_LENGTH + " charatères");
+            setError("login", "Ce champ doit faire maximum " + MAX_LOGIN_LENGTH + " charatères");
         }
         if(pwd.trim().length() > MAX_LOGIN_LENGTH){
-            setError("pwd", "Ce champ doit faire minimum " + MAX_LOGIN_LENGTH + " charatères");
+            setError("pwd", "Ce champ doit faire maximum " + MAX_LOGIN_LENGTH + " charatères");
         }
         if(!pwd.equals(pwd2)) {
             setError("pwd", "Veuillez entrez les même mots de passe dans les champs");
